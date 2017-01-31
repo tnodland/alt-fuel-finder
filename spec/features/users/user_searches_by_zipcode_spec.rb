@@ -7,7 +7,7 @@ describe "User can search by zipcode" do
     click_on 'Locate'
     expect(current_path).to eq('/search')
     expect(page).to have_selector('.station', count: 10)
-    within('.station:first') do
+    within first('.station') do
       expect(page).to have_content('ELEC')
       expect(page).to have_content('UDR')
       expect(page).to have_content('800 Acoma St, Denver, CO')
