@@ -2,13 +2,14 @@ require "rails_helper"
 
 feature "User searches for stations by zip" do
   scenario "with a valid zip" do
+    stub_request(:get, "http://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=#{ENV['NREL_API_KEY']}&location=80203&radius=6.0&limit=10&fuel_type=ELEC,LPG").
+      to_return(status: 200, body: File.read("./spec/fixtures/nrel_nearest_stations.json"))
+
     visit "/"
     fill_in :q, with: "80203"
     click_on "Locate"
     expect(current_path).to eq "/search"
     expect(page).to have_css(".station", count: 10)
-
-    # And the stations should be limited to Electric and Propane
 
     within(first(".station")) do
       within(".name") do
