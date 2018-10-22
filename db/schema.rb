@@ -10,6 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20181022150345) do
+
+  create_table "stations", force: :cascade do |t|
+    t.string "nrel_id"
+    t.boolean "convenience_store"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
