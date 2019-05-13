@@ -1,1 +1,5 @@
 <h1><%= facade.total_results %> Results Found</h1>
+
+<% facade.fifteen_nearest.each do |location| %>
+  <p class=location><%=  %></p>
+<% end %>
