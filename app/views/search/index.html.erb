@@ -1,7 +1,7 @@
 <h1><%= facade.total_results %> Results Found</h1>
 
+<h2>Fifteen Locations Closest to You:</h2>
 
-<h2>Fifteen Locations Closest to You</h2>
 <% facade.fifteen_nearest.each do |location| %>
   <section class=location>
     <h3>Name: <%= location.name %></h3>
