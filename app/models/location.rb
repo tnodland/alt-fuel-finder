@@ -21,6 +21,8 @@ class Location
   def fuel_type
     if @fuel_type_code == "ELEC"
       "Electric"
+    else
+      "Plain ol' Gasoline"
     end
   end
 

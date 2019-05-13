@@ -13,7 +13,7 @@ class SearchFacade
     service = DevnetService.new(@zip)
     locations = service.get_locations
     fifteen_locations = locations[:fuel_stations].take(15)
-    locations.map do |location|
+    fifteen_locations.map do |location|
       Location.new(location)
     end
   end
