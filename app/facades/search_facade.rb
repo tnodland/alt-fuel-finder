@@ -10,6 +10,11 @@ class SearchFacade
   end
 
   def fifteen_nearest
-
+    service = DevnetService.new(@zip)
+    locations = service.get_locations
+    fifteen_locations = locations[:fuel_stations].take(15)
+    locations.map do |location|
+      Location.new(location)
+    end
   end
 end
