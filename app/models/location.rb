@@ -1,6 +1,5 @@
 class Location
-  attr_reader :name,
-              :times
+  attr_reader :name
 
 
   def initialize(data)
@@ -28,5 +27,13 @@ class Location
 
   def distance
     "#{@distance} Miles"
+  end
+
+  def times
+    if @times.include? "Not Specified"
+      "Call To find hours of availability"
+    else
+      @times
+    end
   end
 end
